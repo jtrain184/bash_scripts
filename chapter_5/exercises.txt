@@ -1,0 +1,10 @@
+Remove
+Print a list of files in your scripts directory, ending in ".sh". Mind that you might have to unalias ls. Put the result in a temporary file.
+ sed '/.sh$/p'
+
+Make a list of files in /usr/bin that have the letter "a" as the second character. Put the result in a temporary file.
+ls /usr/bin | sed -n '/^.a/p' > TempFile
+
+Delete the first 3 lines of each temporary file.
+sed '1,3d' TempFile > TempFile2
+
