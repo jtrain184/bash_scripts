@@ -1,0 +1,13 @@
+#!/bin/sh
+suffix=BACKUP--`date +%Y-%m-%d-%H%M`
+if [ $# -ne 1 ]; then
+	echo "USAGE: $0 directoryName"
+	exit 1
+fi
+
+for file in `ls $1`; do
+	newname="$file.$suffix"
+	echo "Copying $file to $newname..."
+	echo cp -p $file $newname
+done
+
